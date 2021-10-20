@@ -50,7 +50,6 @@ $(document).ready(function(){
         arrows:false,
         dots:true,
         adaptiveHeight:true,
-        autoplay:true
     });
 });
 // jquery slider
