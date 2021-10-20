@@ -70,14 +70,11 @@ body {
 .menu {
 
 	&__container {
-		// max-width: 700px;
-		// margin: 0 auto;
 		@include flexbox();
 		justify-content: center;
 		align-items: center;
 		position: relative;
 		min-height: 85px;
-		@media (max-width:$md3+px){max-width: none;padding: 0 10px;}
 	}
 
 	&__body {
@@ -125,6 +122,9 @@ body {
 	}
 
 	@media (max-width:$md3+px) {
+		&__container {
+			padding: 0 10px;
+		}
 		&__body {
 			position: fixed;
 			top: 0;

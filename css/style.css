@@ -194,13 +194,6 @@ body._lock {
   min-height: 85px;
 }
 
-@media (max-width: 767.98px) {
-  .menu__container {
-    max-width: none;
-    padding: 0 10px;
-  }
-}
-
 .menu__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -263,6 +256,9 @@ body._lock {
 }
 
 @media (max-width: 767.98px) {
+  .menu__container {
+    padding: 0 10px;
+  }
   .menu__body {
     position: fixed;
     top: 0;
