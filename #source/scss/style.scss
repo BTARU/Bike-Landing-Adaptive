@@ -50,8 +50,12 @@ body {
 		overflow: hidden;
 	}
 }
-.wrapper {width: 100%;min-height: 100%;overflow: hidden;
-	&.loaded {}
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 }
 .container {max-width: $maxWidthContainer+px;margin: 0 auto;width: 100%;
 	@media (max-width:$md1+px){max-width: 970px;}
@@ -205,6 +209,7 @@ body {
 }
 
 .content {
+	flex: 1 1 auto;
 }
 .about-us {
 	background-color: #f7f7f7;
@@ -217,7 +222,7 @@ body {
 .block {
 	text-align: center;
 		&__icon {
-			@include adaptive-value("margin-bottom",30 ,20 ,0 );
+			@include adaptive-value("margin-bottom",30 ,20 ,1 );
 		}
 
 		&__title {
@@ -267,10 +272,10 @@ body {
 	}
 
 	&__content {
-		@include adaptive-value("padding-right",60 ,25 ,0 );
-		@include adaptive-value("padding-left",60 ,25 ,0 );
-		@include adaptive-value("padding-top",70 ,30 ,0 );
-		@include adaptive-value("padding-bottom",70 ,30 ,0 );
+		@include adaptive-value("padding-right",60 ,25 ,1 );
+		@include adaptive-value("padding-left",60 ,25 ,1 );
+		@include adaptive-value("padding-top",70 ,30 ,1 );
+		@include adaptive-value("padding-bottom",70 ,30 ,1 );
 		position: relative;
 		&::after {
 			content: '';
@@ -305,7 +310,7 @@ body {
 	}
 }
 .item {
-	// display: block;
+
 	&__image {
 		img {
 			width: 100%;
@@ -341,11 +346,15 @@ body {
 	background-color: #f7f7f7;
 	@include adaptive-value("padding-top",120 ,35 ,1 );
 	@include adaptive-value("padding-bottom",65 ,30 ,1 );
+
 	&__body {
 	}
 
 	&__item {
 		text-align: center;
+		&:not(:last-child) {
+			@include adaptive-value("margin-bottom",60 ,25 , 1);
+		}
 	}
 
 	&__icon {
@@ -367,10 +376,9 @@ body {
 
 	&__text {
 		@include adaptive-value("font-size",24 ,20 ,1 );
-		@include adaptive-value("line-height",34 ,28 , 1);
+		line-height: 142%;
 		font-style: italic;
-		color: #848789;
-		@include adaptive-value("margin-bottom",60 ,25 , 1);
+		color: #848789;		
 	}
 }
 
@@ -506,7 +514,7 @@ body {
 
 	&__label {
 		font-size: 24px;
-		line-height: 34px;
+		line-height: 142%;
 		font-style: italic;
 		color: #848789;
 		margin-bottom: 35px;
@@ -525,7 +533,7 @@ body {
 			background-color: #ffffff;
 			border: 1px solid #d3d7d9;
 			font-size: 20px;
-			line-height: 24px;
+			line-height: 120%;
 			font-style: italic;
 			color: #929292;
 			@include adaptive-value("padding-left",28 ,10 ,1 );
@@ -541,7 +549,7 @@ body {
 		height: 69px;
 		background-color: #64c29e;
 		font-size: 24px;
-		line-height: 24px;
+		line-height: 100%;
 		font-weight: 300;
 		color: #ffffff;
 		transition: all 0.3s ease 0s;
@@ -580,7 +588,7 @@ body {
 
 	&__adress {
 		font-size: 14px;
-		line-height: 17px;
+		line-height: 121%;
 		color: #848789;
 		text-align: justify;
 		font-style: italic;
@@ -627,8 +635,8 @@ body {
 		justify-content: flex-end;
 		align-items: center;
 	&__text {
-		font-size: 13.9px;
-		line-height: 17px;
+		font-size: 14px;
+		line-height: 121%;
 		font-style: italic;
 		color: #848789;
 		padding: 0 9px 0 0;
