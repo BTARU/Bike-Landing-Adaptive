@@ -146,6 +146,13 @@ body._lock {
   width: 100%;
   min-height: 100%;
   overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .container {
@@ -360,6 +367,12 @@ body._lock {
   }
 }
 
+.content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
 .about-us {
   background-color: #f7f7f7;
   padding-top: 115px;
@@ -383,7 +396,13 @@ body._lock {
 }
 
 .block__icon {
-  margin-bottom: calc(20px + 10 * ((100vw - 320px) / 1280));
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1100px) {
+  .block__icon {
+    margin-bottom: calc(20px + 10 * ((100vw - 320px) / 780));
+  }
 }
 
 .block__title {
@@ -447,11 +466,35 @@ body._lock {
 }
 
 .work__content {
-  padding-right: calc(25px + 35 * ((100vw - 320px) / 1280));
-  padding-left: calc(25px + 35 * ((100vw - 320px) / 1280));
-  padding-top: calc(30px + 40 * ((100vw - 320px) / 1280));
-  padding-bottom: calc(30px + 40 * ((100vw - 320px) / 1280));
+  padding-right: 60px;
+  padding-left: 60px;
+  padding-top: 70px;
+  padding-bottom: 70px;
   position: relative;
+}
+
+@media (max-width: 1100px) {
+  .work__content {
+    padding-right: calc(25px + 35 * ((100vw - 320px) / 780));
+  }
+}
+
+@media (max-width: 1100px) {
+  .work__content {
+    padding-left: calc(25px + 35 * ((100vw - 320px) / 780));
+  }
+}
+
+@media (max-width: 1100px) {
+  .work__content {
+    padding-top: calc(30px + 40 * ((100vw - 320px) / 780));
+  }
+}
+
+@media (max-width: 1100px) {
+  .work__content {
+    padding-bottom: calc(30px + 40 * ((100vw - 320px) / 780));
+  }
 }
 
 .work__content::after {
@@ -547,6 +590,16 @@ body._lock {
   text-align: center;
 }
 
+.twitter-slider__item:not(:last-child) {
+  margin-bottom: 60px;
+}
+
+@media (max-width: 1100px) {
+  .twitter-slider__item:not(:last-child) {
+    margin-bottom: calc(25px + 35 * ((100vw - 320px) / 780));
+  }
+}
+
 .twitter-slider__icon {
   margin-bottom: 35px;
 }
@@ -579,27 +632,14 @@ body._lock {
 
 .twitter-slider__text {
   font-size: 24px;
-  line-height: 34px;
+  line-height: 142%;
   font-style: italic;
   color: #848789;
-  margin-bottom: 60px;
 }
 
 @media (max-width: 1100px) {
   .twitter-slider__text {
     font-size: calc(20px + 4 * ((100vw - 320px) / 780));
-  }
-}
-
-@media (max-width: 1100px) {
-  .twitter-slider__text {
-    line-height: calc(28px + 6 * ((100vw - 320px) / 780));
-  }
-}
-
-@media (max-width: 1100px) {
-  .twitter-slider__text {
-    margin-bottom: calc(25px + 35 * ((100vw - 320px) / 780));
   }
 }
 
@@ -792,7 +832,7 @@ body._lock {
 
 .subscribe__label {
   font-size: 24px;
-  line-height: 34px;
+  line-height: 142%;
   font-style: italic;
   color: #848789;
   margin-bottom: 35px;
@@ -818,7 +858,7 @@ body._lock {
   background-color: #ffffff;
   border: 1px solid #d3d7d9;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 120%;
   font-style: italic;
   color: #929292;
   padding-left: 28px;
@@ -841,7 +881,7 @@ body._lock {
   height: 69px;
   background-color: #64c29e;
   font-size: 24px;
-  line-height: 24px;
+  line-height: 100%;
   font-weight: 300;
   color: #ffffff;
   -webkit-transition: all 0.3s ease 0s;
@@ -901,7 +941,7 @@ body._lock {
 
 .footer__adress {
   font-size: 14px;
-  line-height: 17px;
+  line-height: 121%;
   color: #848789;
   text-align: justify;
   font-style: italic;
@@ -959,8 +999,8 @@ body._lock {
 }
 
 .dev__text {
-  font-size: 13.9px;
-  line-height: 17px;
+  font-size: 14px;
+  line-height: 121%;
   font-style: italic;
   color: #848789;
   padding: 0 9px 0 0;

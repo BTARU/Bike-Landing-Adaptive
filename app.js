@@ -21,10 +21,10 @@ if (menuLinks.length > 0) {
     });
 
     function onMenuLinkClick(e) {
-        const menuLink = e.target;
+        let menuLink = e.target;
         if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
-            const gotoBlock = document.querySelector(menuLink.dataset.goto);
-            const gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY;
+            let gotoBlock = document.querySelector(menuLink.dataset.goto);
+            let gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY;
 
             if (iconMenu.classList.contains('_active')) {
                 document.body.classList.remove('_lock');
