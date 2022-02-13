@@ -1,55 +1,74 @@
-// "use strict"
+"use strict";
 
 //  Burger menu
 
-const iconMenu = document.querySelector('.menu__icon');
-const menuBody = document.querySelector('.menu__body');
+const iconMenu = document.querySelector(".menu__icon");
+const menuBody = document.querySelector(".menu__body");
 if (iconMenu) {
-    iconMenu.addEventListener('click', function (e) {
-        document.body.classList.toggle('_lock');
-        iconMenu.classList.toggle('_active');
-        menuBody.classList.toggle('_active');
-    })
+    iconMenu.addEventListener("click", function (e) {
+        document.body.classList.toggle("_lock");
+        iconMenu.classList.toggle("_active");
+        menuBody.classList.toggle("_active");
+    });
 }
 
 // Прокрутка по клику
 
-const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
+const menuLinks = document.querySelectorAll(".menu__link[data-goto]");
 if (menuLinks.length > 0) {
-    menuLinks.forEach(menuLink => {
-        menuLink.addEventListener('click', onMenuLinkClick);
+    menuLinks.forEach((menuLink) => {
+        menuLink.addEventListener("click", onMenuLinkClick);
     });
 
     function onMenuLinkClick(e) {
-        const menuLink = e.target;
+        let menuLink = e.target;
         if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
-            const gotoBlock = document.querySelector(menuLink.dataset.goto);
-            const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset
+            let gotoBlock = document.querySelector(menuLink.dataset.goto);
+            let gotoBlockValue = gotoBlock.getBoundingClientRect().top + scrollY;
 
-            if (iconMenu.classList.contains('_active')) {
-                document.body.classList.remove('_lock');
-                iconMenu.classList.remove('_active');
-                menuBody.classList.remove('_active');
+            if (iconMenu.classList.contains("_active")) {
+                document.body.classList.remove("_lock");
+                iconMenu.classList.remove("_active");
+                menuBody.classList.remove("_active");
             }
 
             window.scrollTo({
                 top: gotoBlockValue,
-                behavior: 'smooth'
+                behavior: "smooth",
             });
             e.preventDefault();
         }
     }
 }
 
-// Прокрутка по клику
-//  Burger menu
-
 // jquery slider
-$(document).ready(function(){
-    $('.twitter-slider__body').slick({
-        arrows:false,
-        dots:true,
-        adaptiveHeight:true,
+$(document).ready(function () {
+    $(".twitter-slider__body").slick({
+        arrows: false,
+        dots: true,
+        adaptiveHeight: true,
     });
 });
-// jquery slider
+
+// Scroll arrow to top of the page (elem #arrowToTop, add attr hidden)
+
+if (document.querySelector("#arrowToTop")) {
+    window.addEventListener("scroll", function () {
+        if (scrollY > document.documentElement.clientHeight) {
+            arrowToTop.hidden = false;
+        } else arrowToTop.hidden = true;
+    });
+
+    arrowToTop.addEventListener("click", scrollToTop);
+
+    function scrollToTop(event) {
+        let targetElem = event.target.closest("#arrowToTop");
+
+        if (targetElem) {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
+        }
+    }
+}
